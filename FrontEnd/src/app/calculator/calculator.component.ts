@@ -8,7 +8,7 @@ import { CalculatorService } from '../services/calculator.service';
 })
 export class CalculatorComponent implements OnInit {
 
-  screen: String = ""; //content of current user input
+  screen: String = "0"; //content of current user input
   firstOperand: String = "";
   secondOperand: String = "";
   operation: String = "";
@@ -51,6 +51,7 @@ export class CalculatorComponent implements OnInit {
     if (this.hist.charAt(this.hist.length - 1) === "=" || this.screen == "E") { this.screen = "" } //wipe out screen and start over
     this.isError = false;
     //get the data of the pressed button and append it on screen
+    if (this.screen.charAt(0) == "0") { this.screen = this.screen.replace(this.screen.charAt(0), ""); }
     this.screen += click.target.innerText;
   }
 
@@ -80,6 +81,7 @@ export class CalculatorComponent implements OnInit {
     }, err => {
       this.result = err.error.text;
       this.screen = this.result;
+      this.hist += "0";
       if (this.result == "E") { this.isError = true; }
     });
   }
@@ -87,7 +89,7 @@ export class CalculatorComponent implements OnInit {
   //C and CE buttons
   reset(reset: any) {
     this.isError = false;
-    this.screen = ""; //clear the screen 
+    this.screen = "0"; //clear the screen 
     this.hist = ""; //clear the history
     this.firstOperand = "";
     this.operation = "";
@@ -98,6 +100,9 @@ export class CalculatorComponent implements OnInit {
   backSpace(x: any) {
     this.isError = false;
     this.screen = this.screen.replace(/.$/, "") //clear the last element 
+    if (this.screen == "") {
+      this.screen = "0"
+    }
   }
 
   number: number = 0
