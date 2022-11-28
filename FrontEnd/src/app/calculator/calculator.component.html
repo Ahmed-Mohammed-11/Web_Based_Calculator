@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.component.css">
+</head>
+<body>
+    <div class="contain">
+        <div class="screen">
+            <div class="previous"> {{ hist }} </div>
+            <div class="current"> {{ screen }} </div>
+        </div>
+        <button [disabled]="isError" (click)="unaryOperations($event)">%</button>
+        <button (click)="reset($event)">CE</button>
+        <button (click)="reset($event)">C</button>
+        <button (click)="backSpace($event)" id="red">X</button>
+        <button [disabled]="isError" (click)="unaryOperations($event)">1/x</button>
+        <button [disabled]="isError" (click)="unaryOperations($event)">x<sup>2</sup></button>
+        <button [disabled]="isError" (click)="unaryOperations($event)">
+            <span style="font-size:20px;">&#8730;<span style="text-decoration:overline">&nbsp;x&nbsp;</span></span>
+        </button>
+        <button [disabled]="isError" (click)="handleOperation($event)">&#247;</button>
+        <button (click)="handleButton($event)">7</button>
+        <button (click)="handleButton($event)">8</button>
+        <button (click)="handleButton($event)">9</button>
+        <button [disabled]="isError" (click)="handleOperation($event)"> &#215; </button>
+        <button (click)="handleButton($event)">4</button>
+        <button (click)="handleButton($event)">5</button>
+        <button (click)="handleButton($event)">6</button>
+        <button [disabled]="isError" (click)="handleOperation($event)">&#8722;</button>
+        <button (click)="handleButton($event)">1</button>
+        <button (click)="handleButton($event)">2</button>
+        <button (click)="handleButton($event)">3</button>
+        <button [disabled]="isError" (click)="handleOperation($event)">+</button>
+        <button [disabled]="isError" (click)="toggleSign($event)">+/-</button>
+        <button (click)="handleButton($event)">0</button>
+        <button [disabled]="isError" (click)="floatIt()">.</button>
+        <button [disabled]="isError" (click)="binaryOperations($event)" id="equals">=</button> 
+    </div> 
+</body>
+</html> 
