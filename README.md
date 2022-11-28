@@ -16,3 +16,6 @@
 - To get it back click any of the allowed buttons 
 
 ## Find more detailed readme in backend and frontend folders 
+
+- CalculatorComponent is in : (https://github.com/Ahmed-Mohammed-11/Web_Based_Calculator/tree/main/FrontEnd/src/app/calculator)
+- controller, service layers are in : (https://github.com/Ahmed-Mohammed-11/Web_Based_Calculator/tree/main/BackEnd/src/main/java/com/example/demo/Calculator)
